@@ -20,7 +20,7 @@ namespace KKParticleSystem
 
         Stopwatch stopwatch;
 
-        PointF position = new PointF(5, 5);
+        ParticleSystem particleSystem;
 
         public GameForm()
         {
@@ -38,13 +38,14 @@ namespace KKParticleSystem
             this.Load += new EventHandler(CreateBackBuffer);
 
             stopwatch = Stopwatch.StartNew();
+
+            particleSystem = new ParticleSystem(1000);
         }
 
         //Game Update function for all the game logic
         void GameUpdate(float deltaTime)
         {
-            position.X += delta;
-            position.Y += delta;
+            particleSystem.Update(delta);
         }
 
         //Game Render function to draw all the particles
@@ -55,7 +56,11 @@ namespace KKParticleSystem
                 using (var g = Graphics.FromImage(Backbuffer))
                 {
                     g.Clear(Color.White);
-                    g.FillEllipse(Brushes.Red, position.X, position.Y, 30, 30);
+
+                    foreach(Particle particle in particleSystem.particles)
+                    {
+                        g.FillEllipse(Brushes.Red, particle.position.X, particle.position.Y, particle.size.X, particle.size.Y);
+                    }
                 }
 
                 Invalidate();
