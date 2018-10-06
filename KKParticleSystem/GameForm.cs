@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -14,6 +15,12 @@ namespace KKParticleSystem
     public partial class GameForm : Form
     {
         Bitmap Backbuffer;
+
+        float delta = 0;
+
+        Stopwatch stopwatch;
+
+        PointF position = new PointF(5, 5);
 
         public GameForm()
         {
@@ -29,6 +36,30 @@ namespace KKParticleSystem
             this.Paint += HandleFormPaint;
             this.ResizeEnd += new EventHandler(CreateBackBuffer);
             this.Load += new EventHandler(CreateBackBuffer);
+
+            stopwatch = Stopwatch.StartNew();
+        }
+
+        //Game Update function for all the game logic
+        void GameUpdate(float deltaTime)
+        {
+            position.X += delta;
+            position.Y += delta;
+        }
+
+        //Game Render function to draw all the particles
+        void GameRender()
+        {
+            if (Backbuffer != null)
+            {
+                using (var g = Graphics.FromImage(Backbuffer))
+                {
+                    g.Clear(Color.White);
+                    g.FillEllipse(Brushes.Red, position.X, position.Y, 30, 30);
+                }
+
+                Invalidate();
+            }
         }
 
         private void CreateBackBuffer(object sender, EventArgs e)
@@ -51,27 +82,11 @@ namespace KKParticleSystem
         {
             while (IsApplicationIdle())
             {
-                GameUpdate();
+                delta = (float)stopwatch.Elapsed.TotalSeconds;
+                deltaLabel.Text = (1 / delta).ToString("n2");
+                stopwatch = Stopwatch.StartNew();
+                GameUpdate(delta);
                 GameRender();
-            }
-        }
-
-        void GameUpdate()
-        {
-
-        }
-
-        void GameRender()
-        {
-            if (Backbuffer != null)
-            {
-                using (var g = Graphics.FromImage(Backbuffer))
-                {
-                    g.Clear(Color.Black);
-                    g.FillEllipse(Brushes.Red, 5, 5, 30, 30);
-                }
-
-                Invalidate();
             }
         }
 
@@ -99,6 +114,7 @@ namespace KKParticleSystem
 
         [DllImport("user32.dll")]
         public static extern int PeekMessage(out NativeMessage message, IntPtr window, uint filterMin, uint filterMax, uint remove);
+
     }
 }
 
