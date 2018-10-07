@@ -18,7 +18,7 @@ namespace KKParticleSystem
 
         float delta = 0;
 
-        int emitRate = 3000;
+        int emitRate = 5000;
 
         Stopwatch stopwatch;
 
@@ -91,7 +91,8 @@ namespace KKParticleSystem
             while (IsApplicationIdle())
             {
                 delta = (float)stopwatch.Elapsed.TotalSeconds;
-                deltaLabel.Text = (1 / delta).ToString("n2");
+                deltaLabel.Text = "FPS: " + (1 / delta).ToString("n2");
+                particlesLabel.Text = "Count: " + particleSystem.particles.Count.ToString();
                 stopwatch = Stopwatch.StartNew();
                 GameUpdate(delta);
                 GameRender();
@@ -123,6 +124,15 @@ namespace KKParticleSystem
         [DllImport("user32.dll")]
         public static extern int PeekMessage(out NativeMessage message, IntPtr window, uint filterMin, uint filterMax, uint remove);
 
+        private void deltaLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
