@@ -18,3 +18,13 @@ C:\Users\almyk\Documents\UnityAcademy\KKParticleSystemRepo\KKParticleSystem\KKPa
 C:\Users\almyk\Documents\UnityAcademy\KKParticleSystemRepo\KKParticleSystem\KKParticleSystem\obj\Debug\KKParticleSystem.csproj.CoreCompileInputs.cache
 C:\Users\almyk\Documents\UnityAcademy\KKParticleSystemRepo\KKParticleSystem\KKParticleSystem\obj\Debug\KKParticleSystem.exe
 C:\Users\almyk\Documents\UnityAcademy\KKParticleSystemRepo\KKParticleSystem\KKParticleSystem\obj\Debug\KKParticleSystem.pdb
+C:\Users\almyk\Desktop\KKParticleSystem-master\KKParticleSystem-master\KKParticleSystem\bin\Debug\KKParticleSystem.exe.config
+C:\Users\almyk\Desktop\KKParticleSystem-master\KKParticleSystem-master\KKParticleSystem\bin\Debug\KKParticleSystem.exe
+C:\Users\almyk\Desktop\KKParticleSystem-master\KKParticleSystem-master\KKParticleSystem\bin\Debug\KKParticleSystem.pdb
+C:\Users\almyk\Desktop\KKParticleSystem-master\KKParticleSystem-master\KKParticleSystem\obj\Debug\KKParticleSystem.csprojResolveAssemblyReference.cache
+C:\Users\almyk\Desktop\KKParticleSystem-master\KKParticleSystem-master\KKParticleSystem\obj\Debug\KKParticleSystem.GameForm.resources
+C:\Users\almyk\Desktop\KKParticleSystem-master\KKParticleSystem-master\KKParticleSystem\obj\Debug\KKParticleSystem.Properties.Resources.resources
+C:\Users\almyk\Desktop\KKParticleSystem-master\KKParticleSystem-master\KKParticleSystem\obj\Debug\KKParticleSystem.csproj.GenerateResource.cache
+C:\Users\almyk\Desktop\KKParticleSystem-master\KKParticleSystem-master\KKParticleSystem\obj\Debug\KKParticleSystem.csproj.CoreCompileInputs.cache
+C:\Users\almyk\Desktop\KKParticleSystem-master\KKParticleSystem-master\KKParticleSystem\obj\Debug\KKParticleSystem.exe
+C:\Users\almyk\Desktop\KKParticleSystem-master\KKParticleSystem-master\KKParticleSystem\obj\Debug\KKParticleSystem.pdb

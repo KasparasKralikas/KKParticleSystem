@@ -61,8 +61,7 @@ namespace KKParticleSystem
 
                     foreach(Particle particle in particleSystem.particles)
                     {
-                        int index = particle.ID;
-                        g.FillRectangle(Brushes.Red, particleSystem.positions[index].X, particleSystem.positions[index].Y, particleSystem.sizes[index].X, particleSystem.sizes[index].Y);
+                        g.FillRectangle(Brushes.Red, particle.position.X, particle.position.Y, particle.size.X, particle.size.Y);
                     }
                 }
 
