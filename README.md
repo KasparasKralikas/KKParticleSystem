@@ -10,4 +10,13 @@ Changed System.Drawaing.Graphics.FillEllipse() to System.Drawaing.Graphics.FillR
 10/7/2018 2:05 PM:
 Reworked the project to use Data-oriented design. The Particle System has a list of Particles. However, now each particle object only has an Integer ID. All the information is stored in Particle System class. It has arrays for positions, velocities, lifetimes, sizes and accelerations. Properties for each particle can be accessed via particle's ID. Also, there's a Queue of unused indexes. At first, we enqueue all the possible indexes to this Queue. During the runtime, when the particle is destroyed, the ID is Enqueued to this Queue. And when we need to create a new particle, we Dequeue the first available free ID from the Queue.
 
-Sadly, I was not able to get any significant performance boost using the Data-oriented design as the whole project is still being bottlenecked by System.Drawaing.Graphics.FillRectangle() which uses 50.32% of all the time. It runs at 13 fps with 55000 particles.
+Sadly, I was not able to get any significant performance boost using the Data-oriented design as the whole project is still being bottlenecked by System.Drawaing.Graphics.FillRectangle() which uses 50.32% of all the time. It runs at around 13 fps with 55000 particles.
+
+Profiler analysis for OOD version:
+![alt text](https://github.com/KasparasKralikas/KKParticleSystem/blob/master/OOD.png)
+
+Profiler analysis for DOD version:
+![alt text](https://github.com/KasparasKralikas/KKParticleSystem/blob/master/DOD.png)
+
+To conclude:
+The performance difference is not as big as I expected because the program is greatly bottlenecked by the rendering part - Windows Forms is not the best tool for such task. For better results I would consider redoing this project with C++ and a lightweight rendering library. However, I still learned a lot about data-oriented programming and how important efficient code is for larger projects. However, I think that code readability and scalability is negatively impacted when data-oriented design is used.
