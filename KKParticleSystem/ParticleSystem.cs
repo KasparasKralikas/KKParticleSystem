@@ -13,8 +13,6 @@ namespace KKParticleSystem
 
         public int EmitRate { get; set; }
 
-        private float counter = 0;
-
         public List<Particle> particles;
 
         public ParticleSystem(int emitRate)
@@ -29,17 +27,25 @@ namespace KKParticleSystem
             int count = (int) (deltaTime * emitRate);
             for (int i = 0; i < count; i++)
             {
-                float random = (float)(new Random()).Next(0, 100) / 10;
-                Particle particle = new Particle(new PointF(200, 50), new PointF(0, -20), random, new PointF(2, 2), new PointF(random, 10));
+                Random random = new Random();
+                float randomFloat = random.Next(-180, 180) / 10;
+                Particle particle = new Particle(new PointF(random.Next(240, 260), 150), new PointF(random.Next(-30, 30), -random.Next(40,60)), random.Next(6, 9), new PointF(4, 4), new PointF(0, 20));
                 particles.Add(particle);
             }
 
-            foreach(Particle particle in particles.ToList())
+            List<Particle> removeList = new List<Particle>();
+
+            foreach(Particle particle in particles)
             {
                 if (particle.Update(deltaTime))
                 {
-                    particles.Remove(particle);
+                    removeList.Add(particle);
                 }
+            }
+
+            foreach(Particle particle in removeList)
+            {
+                particles.Remove(particle);
             }
         }
 

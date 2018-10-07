@@ -18,6 +18,8 @@ namespace KKParticleSystem
 
         float delta = 0;
 
+        int emitRate = 3000;
+
         Stopwatch stopwatch;
 
         ParticleSystem particleSystem;
@@ -39,7 +41,7 @@ namespace KKParticleSystem
 
             stopwatch = Stopwatch.StartNew();
 
-            particleSystem = new ParticleSystem(1000);
+            particleSystem = new ParticleSystem(emitRate);
         }
 
         //Game Update function for all the game logic
@@ -55,7 +57,7 @@ namespace KKParticleSystem
             {
                 using (var g = Graphics.FromImage(Backbuffer))
                 {
-                    g.Clear(Color.White);
+                    g.Clear(Color.Black);
 
                     foreach(Particle particle in particleSystem.particles)
                     {
@@ -80,6 +82,7 @@ namespace KKParticleSystem
             if (Backbuffer != null)
             {
                 e.Graphics.DrawImageUnscaled(Backbuffer, Point.Empty);
+
             }
         }
 
