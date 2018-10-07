@@ -18,7 +18,7 @@ namespace KKParticleSystem
 
         float delta = 0;
 
-        int emitRate = 5000;
+        int emitRate = 8000;
 
         Stopwatch stopwatch;
 
@@ -61,7 +61,8 @@ namespace KKParticleSystem
 
                     foreach(Particle particle in particleSystem.particles)
                     {
-                        g.FillEllipse(Brushes.Red, particle.position.X, particle.position.Y, particle.size.X, particle.size.Y);
+                        int index = particle.ID;
+                        g.FillRectangle(Brushes.Red, particleSystem.positions[index].X, particleSystem.positions[index].Y, particleSystem.sizes[index].X, particleSystem.sizes[index].Y);
                     }
                 }
 

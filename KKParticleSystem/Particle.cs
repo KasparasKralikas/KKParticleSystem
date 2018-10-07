@@ -9,32 +9,14 @@ namespace KKParticleSystem
 {
     class Particle
     {
-        public PointF position;
 
-        public PointF velocity;
+        public int ID;
 
-        public float lifetime;
-
-        public PointF size;
-
-        public PointF acceleration;
-
-        public Particle(PointF position, PointF velocity, float lifetime, PointF size, PointF acceleration)
+        public Particle(int ID)
         {
-            this.position = position;
-            this.velocity = velocity;
-            this.lifetime = lifetime;
-            this.size = size;
-            this.acceleration = acceleration;
+            this.ID = ID;
         }
-
-        public bool Update(float deltaTime)
-        {
-            position = new PointF(position.X + velocity.X * deltaTime, position.Y + velocity.Y * deltaTime);
-            velocity = new PointF(velocity.X + acceleration.X * deltaTime, velocity.Y + acceleration.Y * deltaTime);
-            lifetime -= deltaTime;
-            return lifetime <= 0;
-            
-        }
+       
     }
+
 }
