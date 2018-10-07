@@ -12,6 +12,8 @@ Reworked the project to use Data-oriented design. The Particle System has a list
 
 Sadly, I was not able to get any significant performance boost using the Data-oriented design as the whole project is still being bottlenecked by System.Drawaing.Graphics.FillRectangle() which uses 50.32% of all the time. It runs at around 13 fps with 55000 particles.
 
+10/7/2018 2:47 PM:
+
 Profiler analysis for OOD version:
 ![alt text](https://github.com/KasparasKralikas/KKParticleSystem/blob/master/OOD.png)
 
